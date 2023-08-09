@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+  margin-block: 4rem;
+
+  .stepBalloon {
+    position: relative;
+    width: 4rem;
+    height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #adb4c1;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #664de5;
+    font-size: "1.5rem";
+    cursor: "default";
+
+    &:first-child::before,
+    &:last-child::after {
+      content: none;
+    }
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      left: calc(-5.2rem / 2);
+      right: calc(-5.2rem / 2);
+      width: calc(5rem / 2);
+      height: 0.12rem;
+      background-color: #adb4c1;
+    }
+    &::before {
+      right: initial;
+    }
+    &::after {
+      left: initial;
+    }
+  }
+  .stepBalloon.active {
+    border: 1px solid #664DE5;
+    background-color: #664DE5;
+    color: #fff;
+    cursor: "pointer";
+    &::after,
+    &::before {
+      background-color: #664DE5;
+    }
+  }
+}
