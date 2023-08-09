@@ -68,7 +68,7 @@ const OnBoarding = () => {
         break;
     }
     return { title, subtitle };
-  }, [currentStep]);
+  }, [currentStep, state]);
 
   const isCompletedStep = currentStep === 4;
 
@@ -149,7 +149,7 @@ const OnBoarding = () => {
                 onClick={()=>onPlanChange("self")}
                 className={[classes.option, state[actionTypes.PLAN_TYPE]==="self" && classes.active].join(' ')}
               >
-                <img src={SelfIcon} className={classes.icon} />
+                <img src={SelfIcon} className={classes.icon} alt="self-img"/>
                 <div className={classes.title}>For myself</div>
                 <div className={classes.subtitle}>Write better. Think more clearly. Stay organised.</div>
               </div>
@@ -158,7 +158,7 @@ const OnBoarding = () => {
                 onClick={()=>onPlanChange("team")}
                 className={[classes.option, state[actionTypes.PLAN_TYPE]==="team" && classes.active].join(' ')}
               >
-                <img src={TeamIcon} className={classes.icon} />
+                <img src={TeamIcon} className={classes.icon} alt="team-img" />
                 <div className={classes.title}>With my team</div>
                 <div className={classes.subtitle}>Wikis, docs, tasks & projects, all in one place.</div>
               </div>
@@ -180,7 +180,7 @@ const OnBoarding = () => {
         currentStep={currentStep}
         setStep={setCurrentStep}
       />
-      {isCompletedStep && <img src={CheckIcon} />}
+      {isCompletedStep && <img src={CheckIcon} alt="complete-img"/>}
       <h2 className="title">{title}</h2>
       <small className="subtitle">{subtitle}</small>
 
